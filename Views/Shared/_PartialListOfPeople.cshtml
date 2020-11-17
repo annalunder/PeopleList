@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Partial people list";
+}
+
+@model ViewModel.ViewModels.PersonViewModel
+
+<div class="form-control">
+    @Model.person.Name
+    @Model.person.PhoneNumber
+    @Model.person.City
+</div>

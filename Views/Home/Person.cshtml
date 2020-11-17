@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Persons";
+}
+
+@model ViewModel.ViewModels.PersonViewModel
+
+<div>
+    <h4>Add a person to the list</h4>
+
+    <form asp-action="Add" asp-controller="Home" method="post">
+        <input asp-for="Name" class="form-control" placeholder="Name" />
+        <input asp-for="PhoneNumber" class="form-control" placeholder="PhoneNumber" />
+        <input asp-for="City" class="form-control" placeholder="City" />
+        <input type="submit" value="Add" class="btn btn-primary" style="margin-top:5px" />
+    </form>
+</div>
+<br />
+
+<h4>Partial view with search result</h4>
+
+@foreach (var item in Model.People)
+{
+        Model.person = item;
+        @await Html.PartialAsync("_PartialListOfPeople", Model)
+}
